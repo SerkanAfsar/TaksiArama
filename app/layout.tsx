@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Fira_Sans_Extra_Condensed,
+  Poppins,
+  Open_Sans,
+} from "next/font/google";
 import "./globals.css";
+import CustomLayoutProvider from "@/Providers/CustomLayoutProvider";
+import Footer from "@/Components/Footer";
+import ScrollTopLink from "@/Components/Common/ScrollTopLink";
+import NextTopLoader from "nextjs-toploader";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const openSans = Open_Sans({
+  variable: "--font-OpenSans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const fireSans = Fira_Sans_Extra_Condensed({
+  variable: "--font-fireSans",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -23,11 +38,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.variable} ${poppins.variable} ${fireSans.variable} font-OpenSans antialiased`}
       >
-        {children}
+        <CustomLayoutProvider>{children}</CustomLayoutProvider>
+        <ScrollTopLink />
+        <Footer />
+        <NextTopLoader
+          color="#ffc61a"
+          height={4}
+          showSpinner={true}
+          zIndex={1600}
+        />
       </body>
     </html>
   );

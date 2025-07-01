@@ -3,13 +3,29 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primaryColor: #ffc61a;
+  --grayColor: #f5f5f5;
+  --fontColor: #1f1f1f;
+  --darkColor: #252525;
+  --inactiveColor: #cccccc;
+  --footerBg: #161616;
+  --footerBottomBg: #0c0c0c;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primaryColor);
+  --color-gray: var(--grayColor);
+  --color-fontColor: var(--fontColor);
+  --color-dark: var(--darkColor);
+  --color-inactive: var(--inactiveColor);
+  --color-footerBg: var(--footerBg);
+  --color-footerBottomBg: var(--footerBottomBg);
+
+  --font-OpenSans: var(--font-OpenSans);
+  --font-fireSans: var(--font-fireSans);
+  --font-Poppins: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +36,64 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply m-0 flex min-h-screen flex-col p-0;
+}
+@layer utilities {
+  .container {
+    @apply mx-auto;
+    @variant max-xl {
+      padding-inline: 2rem;
+    }
+
+    @variant 2xl {
+      max-width: 1170px;
+    }
+  }
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+}
+@layer components {
+  .menuLinkItem {
+    @apply text-inactive hover:text-primary relative block font-semibold uppercase after:invisible after:absolute after:right-0 after:-bottom-1.5 after:left-0 after:block after:h-[4px] after:w-[26px] after:opacity-0 after:transition-all after:content-[''] hover:after:visible hover:after:left-[50%] hover:after:-translate-x-1/2 hover:after:leading-5 hover:after:opacity-100;
+  }
+  .menuLinkItemActive {
+    @apply text-primary relative block font-semibold uppercase after:absolute after:right-0 after:-bottom-1.5 after:left-[50%] after:block after:h-[4px] after:w-[26px] after:-translate-x-1/2 after:transition-all after:content-[''];
+  }
+  .searchArea {
+    @apply bg-gray text-fontColor font-fireSans absolute bottom-10 left-0 z-20 flex max-w-md min-w-md flex-col items-center gap-4 rounded-md p-6;
+    @variant max-sm {
+      @apply max-w-full;
+      left: 2rem;
+      right: 2rem;
+    }
+    @variant md {
+      @apply left-8;
+    }
+    @variant xl {
+      @apply left-0;
+    }
+  }
+  .sectionTitle {
+    @apply font-fireSans flex w-full flex-col items-center justify-center gap-2 text-center leading-16 font-bold uppercase;
+    h3 {
+      @apply text-primary block text-2xl lg:text-3xl;
+    }
+    h4 {
+      @apply text-fontColor text-3xl;
+    }
+  }
+  .footerNavigation {
+    @apply flex flex-wrap gap-x-3 gap-y-2;
+    a {
+      @apply hover:text-primary underline underline-offset-4 opacity-90 transition-all;
+    }
+  }
+}
+section[data-spacing="sm"] {
+  @apply py-6;
+}
+
+section[data-spacing="lg"] {
+  @apply py-12;
 }

@@ -1,7 +1,4 @@
 import CityListSection from "@/Sections/CityListSection";
-import HeroSection from "@/Sections/HeroSection";
-import InfoDetailSection from "@/Sections/InfoDetailSection";
-import ServicesSection from "@/Sections/ServicesSection";
 import { envVariables } from "@/Utils";
 import { Metadata } from "next";
 
@@ -39,13 +36,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      <InfoDetailSection />
-      <ServicesSection />
-      <CityListSection />
-    </>
-  );
+export default function Page() {
+  return <CityListSection />;
 }
