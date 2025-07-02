@@ -10,7 +10,7 @@ export default async function HeroSection() {
     ? (cityListResult.entities as CityType[])
     : [];
   return (
-    <section className="relative z-10 block h-screen w-full before:absolute before:inset-0 before:z-10 before:bg-black/30 before:content-['']">
+    <section className="relative z-10 block h-dvh w-full before:absolute before:inset-0 before:z-10 before:bg-black/30 before:content-['']">
       <SliderArea />
       <ContainerWrapper style={{ padding: "0px" }}>
         <SearchArea cityList={data} />
