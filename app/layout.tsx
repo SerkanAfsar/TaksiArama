@@ -10,6 +10,7 @@ import Footer from "@/Components/Footer";
 import ScrollTopLink from "@/Components/Common/ScrollTopLink";
 import NextTopLoader from "nextjs-toploader";
 import MobileMenuContextProvider from "@/Contexts/useMobileMenuContext";
+import Script from "next/script";
 
 const openSans = Open_Sans({
   variable: "--font-OpenSans",
@@ -54,6 +55,23 @@ export default function RootLayout({
             zIndex={1600}
           />
         </MobileMenuContextProvider>
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=G-1D83EYD48Q`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-1D83EYD48Q');
+            `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
