@@ -39,24 +39,14 @@ export default async function Layout({
     return notFound();
   }
 
-  if (slug.length == 2) {
-    const isDistrictExist = districtList
-      ?.map((a) => slugTaksiUrl(a))
-      .includes(slug[1]);
-
-    if (!isDistrictExist) {
-      return notFound();
-    }
-  }
-
-  if (slug.length > 2) {
-    return notFound();
-  }
-
   const districtName =
     slug.length == 2
       ? districtList.find((a) => slugTaksiUrl(a) == slug[1])
       : undefined;
+
+  if ((slug.length == 2 && !districtName) || slug.length > 2) {
+    return notFound();
+  }
 
   return (
     <>

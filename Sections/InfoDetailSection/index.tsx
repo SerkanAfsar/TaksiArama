@@ -21,7 +21,7 @@ export default function InfoDetailSection() {
         />
         <CustomButtonLink
           className="rounded-full px-8 py-4 font-bold uppercase md:col-span-3 lg:col-span-1"
-          href={"/"}
+          href={"/taksi-duraklari"}
         >
           Taksi Listesi
         </CustomButtonLink>

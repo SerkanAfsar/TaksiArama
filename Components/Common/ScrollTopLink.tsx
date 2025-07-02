@@ -24,7 +24,7 @@ export default function ScrollTopLink() {
         });
       }}
       className={cn(
-        "invisible fixed right-10 bottom-0 translate-y-1/3 cursor-pointer opacity-0 transition-all hover:translate-y-0",
+        "invisible fixed right-10 bottom-0 z-50 translate-y-1/3 cursor-pointer opacity-0 transition-all hover:translate-y-0",
         isScrolled && "visible opacity-100",
       )}
     >

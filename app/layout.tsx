@@ -9,6 +9,7 @@ import CustomLayoutProvider from "@/Providers/CustomLayoutProvider";
 import Footer from "@/Components/Footer";
 import ScrollTopLink from "@/Components/Common/ScrollTopLink";
 import NextTopLoader from "nextjs-toploader";
+import MobileMenuContextProvider from "@/Contexts/useMobileMenuContext";
 
 const openSans = Open_Sans({
   variable: "--font-OpenSans",
@@ -42,15 +43,17 @@ export default function RootLayout({
       <body
         className={`${openSans.variable} ${poppins.variable} ${fireSans.variable} font-OpenSans antialiased`}
       >
-        <CustomLayoutProvider>{children}</CustomLayoutProvider>
-        <ScrollTopLink />
-        <Footer />
-        <NextTopLoader
-          color="#ffc61a"
-          height={4}
-          showSpinner={true}
-          zIndex={1600}
-        />
+        <MobileMenuContextProvider>
+          <CustomLayoutProvider>{children}</CustomLayoutProvider>
+          <ScrollTopLink />
+          <Footer />
+          <NextTopLoader
+            color="#ffc61a"
+            height={4}
+            showSpinner={true}
+            zIndex={1600}
+          />
+        </MobileMenuContextProvider>
       </body>
     </html>
   );

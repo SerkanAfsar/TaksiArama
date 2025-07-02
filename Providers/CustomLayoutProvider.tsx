@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "@/Components/Header";
+import MobileMenuSection from "@/Sections/MobileMenuSection";
 import { usePathname } from "next/navigation";
 
 export default function CustomLayoutProvider({

@@ -4,6 +4,8 @@ import NavMenu from "./NavMenu";
 import { useRef } from "react";
 import useScrolledElement from "@/Hooks/useScrolledElement";
 import { Menu } from "lucide-react";
+import ContainerWrapper from "../Common/ContainerWrapper";
+import { useMobileMenuContext } from "@/Contexts/useMobileMenuContext";
 
 export type HeaderType = {
   isFixed: boolean;
@@ -11,6 +13,8 @@ export type HeaderType = {
 export default function Header({ isFixed }: HeaderType) {
   const element = useRef<HTMLElement>(null);
   const { isScrolled } = useScrolledElement(element);
+
+  const { setIsOpened } = useMobileMenuContext();
   return (
     <header
       ref={element}
@@ -19,10 +23,14 @@ export default function Header({ isFixed }: HeaderType) {
         isFixed ? "fixed bg-black/80" : "bg-dark relative",
       )}
     >
-      <div className="relative container flex items-center justify-between py-5">
+      <ContainerWrapper className="flex items-center justify-between py-5">
         <Logo />
         <NavMenu />
-        <Menu className="block xl:hidden" size={30} />
+        <Menu
+          className="block xl:hidden"
+          onClick={() => setIsOpened(true)}
+          size={30}
+        />
         <div
           className={cn(
             "bg-primary absolute right-0 bottom-0 left-0 block h-[4px] w-full translate-y-1/2 transition-all duration-300",
@@ -30,7 +38,7 @@ export default function Header({ isFixed }: HeaderType) {
             isScrolled ? "invisible opacity-0" : "visible opacity-100",
           )}
         ></div>
-      </div>
+      </ContainerWrapper>
     </header>
   );
 }
