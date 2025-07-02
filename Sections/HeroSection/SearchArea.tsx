@@ -72,7 +72,7 @@ export default function SearchArea({ cityList }: { cityList: CityType[] }) {
 
   return (
     <div className="searchArea">
-      <h3 className="text-3xl font-bold">
+      <h3 className="w-full text-center text-3xl font-bold">
         TAKSİ ARAMA <span className="text-primary">SERVİSİ</span>
       </h3>
       <div className="flex w-full items-center justify-center">
@@ -80,7 +80,7 @@ export default function SearchArea({ cityList }: { cityList: CityType[] }) {
           <Image src={img} alt="Taksi Arama" width={80} height={30} />
         </div>
       </div>
-      <div className="flex w-full gap-3">
+      <div className="flex w-full flex-col gap-3 md:flex-row">
         <CustomSelect
           options={cityListData}
           value={selectedCity}
@@ -107,9 +107,10 @@ export default function SearchArea({ cityList }: { cityList: CityType[] }) {
       >
         TAKSİ ARA
       </button>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque nam
-        numquam neque dolores at quo provident aut tempore illum dicta?
+      <p className="hidden text-left capitalize md:block">
+        Türkiye İl İlçe taksi bulma servisi. İl ve ilçe seçiniz arama düğmesine
+        basarak arama sonucunuza göre taksi listesini görebilirsiniz... Long
+        live heavy metal...
       </p>
     </div>
   );

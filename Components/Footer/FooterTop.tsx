@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ContainerWrapper from "../Common/ContainerWrapper";
+import { generateCityUrl } from "@/Utils";
 
 export default function FooterTop() {
   return (
@@ -17,48 +18,51 @@ export default function FooterTop() {
         <ul className="footerNavigation">
           <li>
             <Link
-              href="/taksi-duraklari/istanbul"
+              href={generateCityUrl("istanbul")}
               title="İstanbul Taksi Durakları"
             >
               İstanbul Taksi Durakları
             </Link>
           </li>
           <li>
-            <Link href="/taksi-duraklari/ankara" title="Ankara Taksi Durakları">
+            <Link
+              href={generateCityUrl("ankara")}
+              title="Ankara Taksi Durakları"
+            >
               Ankara Taksi Durakları
             </Link>
           </li>
           <li>
-            <Link href="/taksi-duraklari/izmir" title="İzmir Taksi Durakları">
+            <Link href={generateCityUrl("izmir")} title="İzmir Taksi Durakları">
               İzmir Taksi Durakları
             </Link>
           </li>
           <li>
-            <Link href="/taksi-duraklari/bursa" title="Bursa Taksi Durakları">
+            <Link href={generateCityUrl("bursa")} title="Bursa Taksi Durakları">
               Bursa Taksi Durakları
             </Link>
           </li>
           <li>
             <Link
-              href="/taksi-duraklari/eskisehir"
+              href={generateCityUrl("eskişehir")}
               title="Eskişehir Taksi Durakları"
             >
               Eskişehir Taksi Durakları
             </Link>
           </li>
           <li>
-            <Link href="/taksi-duraklari/adana" title="Adana Taksi Durakları">
+            <Link href={generateCityUrl("adana")} title="Adana Taksi Durakları">
               Adana Taksi Durakları
             </Link>
           </li>
           <li>
-            <Link href="/taksi-duraklari/konya" title="Konya Taksi Durakları">
+            <Link href={generateCityUrl("konya")} title="Konya Taksi Durakları">
               Konya Taksi Durakları
             </Link>
           </li>
           <li>
             <Link
-              href="/taksi-duraklari/kayseri"
+              href={generateCityUrl("kayseri")}
               title="Kayseri Taksi Durakları"
             >
               Kayseri Taksi Durakları
@@ -66,7 +70,7 @@ export default function FooterTop() {
           </li>
           <li>
             <Link
-              href="/taksi-duraklari/kocaeli"
+              href={generateCityUrl("kocaeli")}
               title="Kocaeli Taksi Durakları"
             >
               Kocaeli Taksi Durakları
@@ -74,19 +78,22 @@ export default function FooterTop() {
           </li>
           <li>
             <Link
-              href="/taksi-duraklari/malatya"
+              href={generateCityUrl("malatya")}
               title="Malatya Taksi Durakları"
             >
               Malatya Taksi Durakları
             </Link>
           </li>
           <li>
-            <Link href="/taksi-duraklari/elazig" title="Elazığ Taksi Durakları">
+            <Link
+              href={generateCityUrl("elazığ")}
+              title="Elazığ Taksi Durakları"
+            >
               Elazığ Taksi Durakları
             </Link>
           </li>
           <li>
-            <Link href="/taksi-duraklari/KİLİS" title="Kilis Taksi Durakları">
+            <Link href={generateCityUrl("kilis")} title="Kilis Taksi Durakları">
               Kilis Taksi Durakları
             </Link>
           </li>

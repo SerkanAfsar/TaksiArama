@@ -110,12 +110,16 @@ export default async function Page({
             replaceSlugUrl(slug[1]).toLocaleLowerCase(),
         );
 
+  // const districtName = slug.length == 2 ? data[0].ilce : null;
+
   return (
-    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      {data.map((item, index) => (
-        <TaxiItem item={item} key={index} />
-      ))}
-    </div>
+    <>
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {data.map((item, index) => (
+          <TaxiItem item={item} key={index} />
+        ))}
+      </div>
+    </>
   );
 }
 
