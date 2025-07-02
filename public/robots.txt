@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.taksiarama.net
+
+# Sitemaps
+Sitemap: https://www.taksiarama.net/sitemap.xml
