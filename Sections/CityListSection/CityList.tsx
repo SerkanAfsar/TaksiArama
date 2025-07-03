@@ -18,7 +18,7 @@ export default function CityList({ data }: { data: CityType[] }) {
       <input
         type="text"
         placeholder="İl Yazınız..."
-        className="bg-primary mx-auto block w-[300px] rounded-md border-2 border-white px-3 py-3 text-sm font-semibold text-black outline-none"
+        className="bg-primary mx-auto block w-[300px] rounded-md border-2 border-black px-3 py-3 text-sm font-semibold text-black outline-none"
         value={cityName}
         onChange={(e) => setCityName(e.target.value)}
       />

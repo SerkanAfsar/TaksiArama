@@ -24,6 +24,7 @@ export default async function Layout({
   const citySlugText = replaceSlugUrl(slug[0]);
 
   const result = await GetCityDetailResultService({ citySlugText });
+
   if (result.statusCode == 404) {
     return notFound();
   }

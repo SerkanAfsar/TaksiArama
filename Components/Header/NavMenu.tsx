@@ -14,6 +14,7 @@ export default function NavMenu() {
         {MenuData.map((item, index) => (
           <li key={index}>
             <Link
+              title={item.title}
               className={cn(
                 "after:bg-[url(/assets/images/linkicon.png)]",
                 pathName == item.url ? "menuLinkItemActive" : "menuLinkItem",

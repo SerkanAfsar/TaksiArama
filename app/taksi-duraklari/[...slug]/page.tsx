@@ -1,5 +1,5 @@
 import TaxiItem from "@/Components/Common/TaxiItem";
-import CityListSection from "@/Sections/CityListSection";
+
 import {
   GetCityDetailResultService,
   GetCityListService,
@@ -81,19 +81,19 @@ export default async function Page({
   params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
-  if (!slug) {
-    return <CityListSection />;
-  }
+
   if (!slug || !slug.length) {
     return notFound();
   }
 
   const citySlugText = replaceSlugUrl(slug[0]);
+
   const result = await GetCityDetailResultService({ citySlugText });
 
   if (result.statusCode == 404) {
     return notFound();
   }
+
   if (!result.success) {
     throw new Error(result.errors.join(","));
   }
@@ -110,16 +110,12 @@ export default async function Page({
             replaceSlugUrl(slug[1]).toLocaleLowerCase(),
         );
 
-  // const districtName = slug.length == 2 ? data[0].ilce : null;
-
   return (
-    <>
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {data.map((item, index) => (
-          <TaxiItem item={item} key={index} />
-        ))}
-      </div>
-    </>
+    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {data.map((item, index) => (
+        <TaxiItem item={item} key={index} />
+      ))}
+    </div>
   );
 }
 
@@ -156,5 +152,5 @@ export async function generateStaticParams() {
   return arr;
 }
 
-export const revalidate = 10;
+export const revalidate = 7200;
 export const dynamic = "force-static";

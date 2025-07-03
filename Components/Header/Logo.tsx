@@ -1,5 +1,12 @@
-import Image from "next/image";
-import logo from "../../public/assets/images/logo.png";
+import Link from "next/link";
 export default function Logo() {
-  return <Image src={logo} alt="Taksi Durakları" width={163} height={42} />;
+  return (
+    <Link
+      href={"/"}
+      title="Taksi Arama Servisi"
+      className="text-2xl font-bold text-white"
+    >
+      TAKSİ <span className="text-primary">ARAMA</span>
+    </Link>
+  );
 }

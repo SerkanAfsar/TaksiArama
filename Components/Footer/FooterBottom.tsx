@@ -12,6 +12,7 @@ export default function FooterBottom() {
             href={"https://www.linkedin.com/feed/"}
             className="text-primary underline"
             target="_blank"
+            rel="nofollow"
           >
             JesterColony
           </Link>

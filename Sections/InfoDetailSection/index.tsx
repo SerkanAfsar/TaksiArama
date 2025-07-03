@@ -6,7 +6,7 @@ import { MapPin, MapPinHouse, Phone } from "lucide-react";
 export default function InfoDetailSection() {
   return (
     <section className="bg-primary block w-full" data-spacing="sm">
-      <ContainerWrapper className="items- grid grid-cols-none gap-3 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:items-center">
+      <ContainerWrapper className="grid grid-cols-none items-center gap-3 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:items-center">
         <InfoDetailItem
           content="Telefon Bilgileri"
           icon={<Phone size={25} />}
@@ -20,7 +20,7 @@ export default function InfoDetailSection() {
           icon={<MapPin size={25} />}
         />
         <CustomButtonLink
-          className="rounded-full px-8 py-4 font-bold uppercase md:col-span-3 lg:col-span-1"
+          className="rounded-full px-8 py-4 font-bold uppercase transition-all hover:bg-white hover:text-black md:col-span-3 lg:col-span-1"
           href={"/taksi-duraklari"}
         >
           Taksi Listesi
