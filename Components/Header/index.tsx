@@ -27,7 +27,7 @@ export default function Header({ isFixed }: HeaderType) {
         <Logo />
         <NavMenu />
         <Menu
-          className="block xl:hidden"
+          className="block cursor-pointer xl:hidden"
           onClick={() => setIsOpened(true)}
           size={30}
         />

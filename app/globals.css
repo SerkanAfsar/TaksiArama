@@ -45,7 +45,7 @@ body {
       padding-inline: 2rem;
     }
 
-    @variant 2xl {
+    @variant xl {
       max-width: 1170px;
     }
   }

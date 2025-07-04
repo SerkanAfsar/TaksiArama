@@ -1,23 +1,13 @@
-import { useMobileMenuContext } from "@/Contexts/useMobileMenuContext";
-import { cn } from "@/Utils";
-import { useLayoutEffect } from "react";
+import { GetCityListService } from "@/Services/CityService";
+import MobileMenuContent from "./MobileMenuContent";
+import { CityType } from "@/Types";
 
-export default function MobileMenuSection() {
-  const { isOpened, setIsOpened } = useMobileMenuContext();
+export default async function MobileMenuSection() {
+  const result = await GetCityListService();
+  if (!result.success) {
+    throw new Error(result.errors.join(","));
+  }
+  const data = result.entities as CityType[];
 
-  useLayoutEffect(() => {
-    document.body.style.overflow = isOpened ? "hidden" : "auto";
-  }, [isOpened]);
-
-  return (
-    <section
-      onClick={() => setIsOpened(false)}
-      className={cn(
-        "invisible fixed inset-0 z-50 block text-2xl text-red-600 opacity-0 transition-all before:absolute before:z-[-1] before:h-screen before:w-full before:bg-black/50 before:content-['']",
-        isOpened && "visible opacity-100",
-      )}
-    >
-      DENEME
-    </section>
-  );
+  return <MobileMenuContent data={data} />;
 }
