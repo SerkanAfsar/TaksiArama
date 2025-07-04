@@ -5,10 +5,12 @@ import { CityType } from "@/Types";
 import { cn, generateCityUrl } from "@/Utils";
 import { X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export default function MobileMenuContent({ data }: { data: CityType[] }) {
   const { isOpened, setIsOpened } = useMobileMenuContext();
+  const pathName = usePathname();
   const [value, setValue] = useState<string>("");
   const ref = useRef<HTMLInputElement | null>(null);
 
@@ -23,6 +25,10 @@ export default function MobileMenuContent({ data }: { data: CityType[] }) {
       setValue("");
     }
   }, [isOpened]);
+
+  useEffect(() => {
+    setIsOpened(false);
+  }, [pathName, setIsOpened]);
 
   const lastData = value
     ? data.filter((a) =>
@@ -55,7 +61,7 @@ export default function MobileMenuContent({ data }: { data: CityType[] }) {
         </div>
         <nav className="block h-auto max-h-screen w-full overflow-auto overscroll-contain text-sm font-semibold text-white">
           <ul className="relative flex w-full flex-col gap-3">
-            <li className="sticky inset-0 mx-2 bg-black px-2 py-1 pb-2">
+            <li className="sticky inset-0 mx-2 -mb-2 bg-black py-1 pb-2">
               <input
                 type="text"
                 ref={ref}
