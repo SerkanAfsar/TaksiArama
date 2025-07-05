@@ -1,3 +1,4 @@
+import CustomSeoTags from "@/Components/Common/CustomSeoTags";
 import CityListSection from "@/Sections/CityListSection";
 import HeroSection from "@/Sections/HeroSection";
 import InfoDetailSection from "@/Sections/InfoDetailSection";
@@ -42,6 +43,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <CustomSeoTags title="Türkiye İl İlçe" h1Show={true} />
       <HeroSection />
       <InfoDetailSection />
       <ServicesSection />

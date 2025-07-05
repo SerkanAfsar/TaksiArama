@@ -1,3 +1,4 @@
+import CustomSeoTags from "@/Components/Common/CustomSeoTags";
 import TaxiItem from "@/Components/Common/TaxiItem";
 
 import {
@@ -110,12 +111,21 @@ export default async function Page({
             replaceSlugUrl(slug[1]).toLocaleLowerCase(),
         );
 
+  const districtName = slug.length == 2 ? data[0].ilce : undefined;
+
+  const titleVal = districtName
+    ? `${city.sehirAd} ${districtName}`
+    : `${city.sehirAd}`;
+
   return (
-    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      {data.map((item, index) => (
-        <TaxiItem item={item} key={index} />
-      ))}
-    </div>
+    <>
+      <CustomSeoTags title={titleVal} h1Show={false} />
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {data.map((item, index) => (
+          <TaxiItem item={item} key={index} />
+        ))}
+      </div>
+    </>
   );
 }
 

@@ -1,3 +1,4 @@
+import CustomSeoTags from "@/Components/Common/CustomSeoTags";
 import CityListSection from "@/Sections/CityListSection";
 import { envVariables } from "@/Utils";
 import { Metadata } from "next";
@@ -37,5 +38,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <CityListSection />;
+  return (
+    <>
+      <CustomSeoTags title="Türkiye İl İlçe" h1Show={true} />
+      <CityListSection />
+    </>
+  );
 }

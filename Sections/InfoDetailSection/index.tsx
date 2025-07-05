@@ -22,6 +22,7 @@ export default function InfoDetailSection() {
         <CustomButtonLink
           className="rounded-full px-8 py-4 font-bold uppercase transition-all hover:bg-white hover:text-black md:col-span-3 lg:col-span-1"
           href={"/taksi-duraklari"}
+          title="Taksi Durakları"
         >
           Taksi Listesi
         </CustomButtonLink>
