@@ -23,17 +23,19 @@ export default function Header({ isFixed }: HeaderType) {
         isFixed ? "fixed bg-black/80" : "bg-dark relative",
       )}
     >
-      <ContainerWrapper className="flex items-center justify-between py-5">
-        <Logo />
-        <NavMenu />
-        <Menu
-          className="block cursor-pointer xl:hidden"
-          onClick={() => setIsOpened(true)}
-          size={30}
-        />
+      <ContainerWrapper className="flex flex-col">
+        <section className="flex w-full items-center justify-between py-5">
+          <Logo />
+          <NavMenu />
+          <Menu
+            className="block cursor-pointer xl:hidden"
+            onClick={() => setIsOpened(true)}
+            size={30}
+          />
+        </section>
         <div
           className={cn(
-            "bg-primary absolute right-0 bottom-0 left-0 block h-[4px] w-full translate-y-1/2 transition-all duration-300",
+            "bg-primary sticky right-0 bottom-0 left-0 block h-[4px] w-full translate-y-1/2 transition-all duration-300",
             isFixed ? "block" : "hidden",
             isScrolled ? "invisible opacity-0" : "visible opacity-100",
           )}
