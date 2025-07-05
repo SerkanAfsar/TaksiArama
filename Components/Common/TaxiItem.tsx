@@ -23,7 +23,12 @@ export default function TaxiItem({ item }: { item: TaxiType }) {
         </div>
         <div className="mb-2 flex gap-3">
           <Phone size={20} className="shrink-0 grow-0" />
-          <a href={`tel:${item.durakTel}`} className="underline">
+          <a
+            rel="nofollow"
+            title={`${item.durakAd} Telefon Numarası`}
+            href={`tel:${item.durakTel}`}
+            className="underline"
+          >
             {maskInput(item.durakTel)}
           </a>
         </div>
