@@ -12,6 +12,7 @@ import NextTopLoader from "nextjs-toploader";
 import MobileMenuContextProvider from "@/Contexts/useMobileMenuContext";
 import Script from "next/script";
 import MobileMenuSection from "@/Sections/MobileMenuSection";
+import { Analytics } from "@vercel/analytics/next";
 
 const openSans = Open_Sans({
   variable: "--font-OpenSans",
@@ -76,6 +77,7 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        <Analytics />
       </body>
     </html>
   );
